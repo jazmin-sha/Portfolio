@@ -16,8 +16,11 @@
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
     />
+    <link rel="icon" type="image/x-icon" href="your-photo.ico" />
   <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet"/>
     <link rel="stylesheet" href="style.css" />
+    <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+
   </head>
   <body>
     <header>
@@ -50,8 +53,8 @@
             Full Stack Developer | JavaScript | Angular | Node.js
           </p>
           <div class="buttons">
-            <a href="resume.pdf" class="btn">Download CV</a>
-            <a href="#contact" class="btn btn-outline">Get in Touch</a>
+              <a href="resume_shabana.pdf" class="btn" download>Download CV</a>
+              <a href="#contact" class="btn btn-outline">Get in Touch</a>
           </div>
 
           <div class="stats">
@@ -271,7 +274,7 @@
               </li>
             </ul>
           </div>
-           <div class="job-detail active" id="zpace">
+          <div class="job-detail " id="zpace">
             <h3>Senior Software Engineer @ VVDN Technologies</h3>
             <p class="job-duration">Oct 2024 – Present | Client-Facing Role</p>
             <ul>
@@ -486,6 +489,7 @@
   </div>
 </section>
 
+
 <section id="contact" class="contact">
   <p class="section-subtitle">Get in Touch</p>
   <h2>Contact Me</h2>
@@ -493,16 +497,20 @@
   <div class="contact-grid">
     <div class="contact-form-card">
       <h3>Send a Message</h3>
-      <form>
+      
+      <div class="notification-area" id="contact-notification"></div>
+      
+      <form id="contact-form">
         <div class="form-group">
           <label for="name">Your Name</label>
-          <input type="text" id="name" placeholder="John Doe" required />
+          <input type="text" id="name" name="from_name" placeholder="John Doe" required />
         </div>
         <div class="form-group">
           <label for="email">Email Address</label>
           <input
             type="email"
             id="email"
+            name="from_email"
             placeholder="john@example.com"
             required
           />
@@ -511,6 +519,7 @@
           <label for="message">Message</label>
           <textarea
             id="message"
+            name="message" 
             placeholder="Write your message here..."
             rows="5"
             required
@@ -529,8 +538,8 @@
           <i class="fas fa-envelope info-icon"></i>
           <div>
             <p>Email</p>
-            <a href="mailto:shabana.jasmin@email.com"
-              >shabana.jasmin@email.com</a
+            <a href="mailto:shabanajasminofficial@gmail.com"
+              >shabanajasminofficial@gmail.com</a
             >
           </div>
         </div>
@@ -538,7 +547,7 @@
           <i class="fas fa-phone-alt info-icon"></i>
           <div>
             <p>Phone</p>
-            <a href="tel:+919876543210">+91 9876 543 210</a>
+            <a href="tel:+919876543210">+91 6238533921</a>
           </div>
         </div>
         <div class="info-item">
@@ -549,8 +558,7 @@
           </div>
         </div>
       </div>
-
-      <div class="connect-card">
+       <div class="connect-card">
         <h3>Connect With Me</h3>
         <p>Find me on professional networks and platforms.</p>
         <div class="social-links-contact">
@@ -564,13 +572,47 @@
             ><i class="fab fa-twitter"></i
           ></a>
         </div>
-      </div>
     </div>
   </div>
 </section>
 
-    <footer>
-      <p>© 2025 Shabana Jasmin. All rights reserved.</p>
+
+    <footer class="impressive-footer">
+      <div class="footer-container">
+        
+        <div class="footer-logo-area">
+            <h2 class="logo footer-logo">
+                <span class="logo-initials">SJ</span>
+            </h2>
+            <p class="footer-profession">
+                Full Stack Developer | Angular & Node.js
+            </p>
+        </div>
+
+        <div class="footer-quote-area">
+            <h3>"The only way to do great work is to love what you do."</h3>
+            <p class="quote-source">— Steve Jobs</p>
+        </div>
+        
+        <div class="footer-social">
+            <h4>Contact & Connect</h4>
+            <div class="footer-contact-info">
+                <p><i class="fas fa-envelope footer-icon"></i> shabanajasminofficial@gmail.com</p>
+                <p><i class="fas fa-map-marker-alt footer-icon"></i> Bangalore, India</p>
+            </div>
+            
+            <div class="social-links-contact footer-social-icons">
+                <a href="https://www.linkedin.com/in/shabana-jasmin-0840491b8/" target="_blank" class="social-icon-box"><i class="fab fa-linkedin-in"></i></a>
+                <a href="https://github.com/jazmin-sha/" target="_blank" class="social-icon-box"><i class="fab fa-github"></i></a>
+                <a href="#" class="social-icon-box"><i class="fab fa-medium-m"></i></a> 
+            </div>
+        </div>
+
+      </div>
+
+      <div class="footer-bottom">
+        <p>© 2025 Shabana Jasmin. All rights reserved.</p>
+      </div>
     </footer>
 
     <script>
@@ -613,6 +655,93 @@
         });
       });
       
+    </script>
+       <script>
+      (function() {
+        // Your public key for EmailJS
+        emailjs.init("FvM1lOa2zVMOXIRqv");
+      })();
+    </script>
+    <script>
+      // Function to display custom notification message
+      function showNotification(message, type) {
+        const notificationArea = document.getElementById("contact-notification");
+        
+        if (!notificationArea) {
+            console.error("Notification area container not found.");
+            return; 
+        }
+
+        // Use inline styles for simplicity, but you can move this to style.css
+        let bgColor = type === 'success' ? '#d4edda' : '#f8d7da';
+        let borderColor = type === 'success' ? '#c3e6cb' : '#f5c6cb';
+        let textColor = type === 'success' ? '#155724' : '#721c24';
+
+        // Use <b> for bolding instead of Markdown (**)
+        notificationArea.innerHTML = `
+          <div style="
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid ${borderColor};
+            border-left: 5px solid ${textColor};
+            border-radius: 4px;
+            background-color: ${bgColor};
+            color: ${textColor};
+            font-size: 14px;
+            display: block;
+            opacity: 0;
+            transition: opacity 0.5s;
+          ">${message}</div>
+        `;
+        
+        // Show the notification with a slight delay
+        setTimeout(() => {
+            notificationArea.querySelector('div').style.opacity = '1';
+        }, 10);
+        
+        // Automatically hide the notification after 5 seconds
+        setTimeout(() => {
+            notificationArea.innerHTML = '';
+        }, 5000);
+      }
+      
+      // Contact form submit handler
+      document.getElementById("contact-form").addEventListener("submit", function (e) {
+        e.preventDefault();
+
+        const submitBtn = this.querySelector('.submit-btn');
+        submitBtn.disabled = true;
+        submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
+
+        // Your EmailJS IDs
+        emailjs.sendForm("service_f0hg974", "template_a2t3qis", this)
+          .then(() => {
+            // SUCCESS message with HTML <b> tag
+            showNotification(
+                "🎉 <b>Message Sent!</b> Thanks for reaching out. I'll review your inquiry and get back to you within 24 hours.",
+                "success"
+            );
+            this.reset();
+            submitBtn.innerHTML = '<i class="fas fa-check"></i> Sent!';
+            setTimeout(() => {
+                submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
+                submitBtn.disabled = false;
+            }, 5000);
+          })
+          .catch((error) => {
+            // ERROR message with HTML <b> tag
+            showNotification(
+                "⚠️ <b>Failed to Send.</b> There was a technical error. Please try again or contact me directly at shabanajasminofficial@gmail.com.",
+                "error"
+            );
+            console.error(error);
+            submitBtn.innerHTML = '<i class="fas fa-times"></i> Failed';
+            setTimeout(() => {
+                submitBtn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Message';
+                submitBtn.disabled = false;
+            }, 5000);
+          });
+      });
     </script>
   </body>
 </html>
