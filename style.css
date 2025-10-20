@@ -325,7 +325,7 @@ h2 {
 /* Icon Styling */
 .card-icon {
   font-size: 2.2rem;
-  color: #000000; /* Use your primary brand color */
+  color: #a87d3a; /* Use your primary brand color */
   min-width: 40px; /* Ensure space for the icon */
   text-align: center;
 }
@@ -500,11 +500,44 @@ section {
 }
 
 .job-card {
+  display: flex;
+  align-items: center; /* Vertically align items in the center */
+  gap: 15px; /* Space between logo and text */
+
   padding: 15px 20px;
   cursor: pointer;
   border-left: 3px solid transparent;
   transition: background 0.3s, border-left 0.3s;
   user-select: none;
+}
+
+.company-logo {
+  width: 40px; /* Set a fixed size for the logo */
+  height: 40px;
+  border-radius: 50%;
+  background-color: #d8d8d8; /* Default background for a neutral look */
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  flex-shrink: 0; /* Prevent the logo from shrinking */
+  border: 1px solid #eee;
+}
+
+.vvdn-logo {
+  background-image: url("vvdn.jpeg");
+}
+
+/* Freelance Developer Logo Placeholder */
+.fingent-logo {
+  background-image: url("fingents.png");
+}
+
+.init-logo {
+  background-image: url("init.png");
+}
+
+.zpace-logo {
+  background-image: url("zpace.png");
 }
 
 .job-card h3 {
@@ -525,7 +558,7 @@ section {
 
 .job-card.active {
   background: #fff; /* Active card is lighter */
-  border-left: 3px solid #007bff;
+  border-left: 3px solid #9e710f;
   box-shadow: 2px 0 5px rgba(0, 0, 0, 0.05); /* Slight shadow to lift it */
 }
 
@@ -550,7 +583,7 @@ section {
 
 .job-duration {
   font-style: italic;
-  color: #007bff;
+  color: #9e710f;
   margin-bottom: 15px;
   font-size: 0.95rem;
 }
@@ -593,7 +626,7 @@ section {
 
   .job-card.active {
     border-left: none;
-    border-bottom: 3px solid #007bff;
+    border-bottom: 3px solid #9e710f;
     box-shadow: none; /* Remove side shadow on mobile view */
   }
 
