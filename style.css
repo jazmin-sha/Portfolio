@@ -15,6 +15,33 @@ body {
   line-height: 1.6;
 }
 
+/* ========================================= */
+/* ===== CUSTOM LOGO/MONOGRAM STYLE (UPDATED FOR BOLDNESS) ===== */
+/* ========================================= */
+
+nav .logo {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+.logo-initials {
+  /* Use the special artistic font for the initials */
+  font-family: "Great Vibes", cursive;
+
+  /* Increased size for better prominence */
+  font-size: 2.8rem;
+
+  font-weight: 400;
+  color: #000000; /* Your accent color */
+  line-height: 1;
+
+  /* Increased thickness of the underline/decoration */
+  padding-bottom: 4px;
+  /* border-bottom: 6px solid #a87d3a; */
+
+  display: inline-block;
+}
+
 /* ===== HEADER & NAVIGATION (Updated for Responsiveness) ===== */
 header {
   background: #fff;
@@ -67,7 +94,7 @@ nav {
 
 /* ===== SECTION BASE & HOME (Minor changes) ===== */
 section {
-  padding: 120px 20px 80px; /* extra top padding to prevent hiding under navbar */
+  padding: 40px 20px 50px;
   max-width: 1100px;
   margin: auto;
 }
@@ -229,7 +256,6 @@ h2 {
   background-color: #1da1f2;
 }
 .social-icon.instagram {
-  /* Gradient for Instagram */
   background: linear-gradient(
     45deg,
     #f09433 0%,
@@ -244,7 +270,6 @@ h2 {
 /* ===== ABOUT SECTION (UPDATED) ===== */
 /* ==================================== */
 
-/* Remove default centering for main paragraph and reset margin */
 .about p {
   text-align: left; /* Change back to left for the main text */
   max-width: none;
@@ -407,8 +432,37 @@ h2heading::after {
 /* ========================================= */
 /* ===== EXPERIENCE SECTION (NEW GRID) ===== */
 /* ========================================= */
+/* ===== RESET ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
 
-/* Subtitle Style */
+body {
+  font-family: "Poppins", sans-serif;
+  background-color: #f7f7f7;
+  color: #333;
+  line-height: 1.6;
+  padding-top: 50px; /* Add space for demonstration */
+}
+
+/* Utility styles for demonstration */
+h2 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+section {
+  padding: 40px 20px 50px;
+  max-width: 1100px;
+  margin: auto;
+}
+
+/* ========================================= */
+/* ===== FONT & UNDERLINE FOR HEADINGS (Needed for context) ===== */
+/* ========================================= */
 .section-subtitle {
   font-size: 1rem;
   color: #000000;
@@ -419,7 +473,9 @@ h2heading::after {
   margin-bottom: 5px;
 }
 
-/* Updated Heading (H2 already has the underline style) */
+/* ========================================= */
+/* ===== EXPERIENCE SECTION (NEW GRID) - USER PROVIDED STYLES ===== */
+/* ========================================= */
 #experience h2 {
   margin-bottom: 50px;
 }
@@ -509,6 +565,10 @@ h2heading::after {
   margin-bottom: 10px;
 }
 
+.job-detail ul li strong {
+  font-weight: 600;
+}
+
 /* Media Query for Mobile (Stacking the columns) */
 @media (max-width: 768px) {
   .experience-container {
@@ -534,36 +594,13 @@ h2heading::after {
   .job-card.active {
     border-left: none;
     border-bottom: 3px solid #007bff;
+    box-shadow: none; /* Remove side shadow on mobile view */
+  }
+
+  .job-details-wrapper {
+    padding: 20px;
   }
 }
-/* Media Query for Mobile (Stacking the columns) */
-@media (max-width: 768px) {
-  .experience-container {
-    /* Stack the columns vertically */
-    grid-template-columns: 1fr;
-  }
-
-  .job-list-wrapper {
-    border-right: none;
-    border-bottom: 1px solid #e0e0e0;
-    display: flex; /* Make job cards scrollable/horizontally stacked on small screen */
-    overflow-x: auto;
-    white-space: nowrap;
-    padding: 0;
-  }
-
-  .job-card {
-    flex: 0 0 auto; /* Prevent stretching in the flex container */
-    border-left: none;
-    border-bottom: 3px solid transparent;
-  }
-
-  .job-card.active {
-    border-left: none;
-    border-bottom: 3px solid #007bff;
-  }
-}
-
 /* ========================================= */
 /* ===== SKILLS SECTION (4-COLUMN GRID) ===== */
 /* ========================================= */
@@ -870,19 +907,19 @@ h2heading::after {
 }
 
 /* Reusing existing skill colors for the icon wrappers */
-/* .angular-color {
-  background-color: #dd1b16; 
+.angular-color-bg {
+  background-color: #dd1b16;
 }
-.node-color {
+.node-color-bg {
   background-color: #68a063;
 }
-.js-color {
-  background-color: #f4f4f4; 
-} */
+.js-color-bg {
+  background-color: #f0db4f;
+}
 /* Custom color for a generic server/TS cert */
-/* .ts-color {
+.ts-color-bg {
   background-color: #007acc;
-} */
+}
 
 /* Adjust JS icon color for visibility on yellow background */
 .js-color .cert-main-icon {
