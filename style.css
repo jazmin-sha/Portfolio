@@ -415,6 +415,17 @@ h2heading::after {
   gap: 20px;
 }
 
+.aws-color {
+  color: #ff9900;
+}
+
+.copilot-color {
+  color: #333;
+}
+
+.microfrontend-color {
+  color: #a87d3a;
+}
 .skill-card {
   background: #f9f9f9;
   padding: 20px;
@@ -655,7 +666,7 @@ section {
 .skill-grid.four-col {
   display: grid;
   /* 4 columns for the primary skills */
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(6, 1fr);
   gap: 20px;
 }
 
@@ -758,7 +769,7 @@ section {
 
 /* Interests Section Styling */
 .interests-grid {
-  grid-template-columns: repeat(3, 1fr); /* 3 cards in a row */
+  grid-template-columns: repeat(4, 1fr); /* 3 cards in a row */
   gap: 20px;
   margin-top: 20px;
 }
@@ -786,6 +797,18 @@ section {
   font-size: 2rem;
   color: #a87d3a;
   margin-bottom: 10px;
+}
+
+@media (max-width: 900px) {
+  .interests-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 500px) {
+  .interests-grid {
+    grid-template-columns: 1fr;
+  }
 }
 
 /* Responsive Adjustments */
